@@ -1,0 +1,14 @@
+version: '3.4'
+
+services:
+  sqlserver:
+   container_name: sqlserver-container
+   image: mcr.microsoft.com/mssql/server:2019-latest
+  demoproject:
+    container_name: demoproject-container
+    image: demoproject-image
+    build:
+      context: .
+      dockerfile: demoproject/Dockerfile
+volumes:
+  sqlserver_volume:

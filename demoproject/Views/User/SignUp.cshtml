@@ -1,0 +1,101 @@
+﻿@using demoproject.Models.ViewModels
+@model SignUpViewModel
+@{
+    ViewData["Title"] = "SignUp";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+ 
+
+    .form-signin {
+        width: 100%;
+        max-width: 330px;
+        padding: 15px;
+        margin: auto;
+    }
+
+        .form-signin .checkbox {
+            font-weight: 400;
+        }
+
+        .form-signin .form-floating:focus-within {
+            z-index: 2;
+        }
+
+        .form-signin input[type="email"] {
+            margin-bottom: -1px;
+            border-bottom-right-radius: 0;
+            border-bottom-left-radius: 0;
+        }
+
+        .form-signin input[type="password"] {
+            margin-bottom: 10px;
+            border-top-left-radius: 0;
+            border-top-right-radius: 0;
+        }
+</style>
+
+<div class="container">
+    <div class="row py-5 mt-4 align-items-center">
+        <!-- For Demo Purpose -->
+        <div class="col-md-5 pr-lg-5 mb-5 mb-md-0" style="display: flex; flex-direction: column; align-items: center;">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToK_-LT9HmxfBNTsC0A8wfvjtfxKh3GjexbQ&s" alt="" class="img-fluid mb-3 d-none d-md-block">
+            <h1>Şimdi Kayıt Olun!!</h1>
+            <p class="font-italic text-muted mb-0">Kayıt Olun</p>
+        </div>
+        <div class="col-md-7 col-lg-6 ml-auto">
+            <h1 style="display: flex; flex-direction: column; align-items: center;margin:10px;font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;font-weight:bold">KAYIT OL</h1>
+            <div asp-validation-summary="ModelOnly"></div>
+            <form asp-controller="User" asp-action="SignUp" method="post">
+                <div class="row">
+                    <div class="input-group col-lg-12 mb-4">
+                        <div class="input-group-prepend">
+                            <span style="height:40px" class="input-group-text bg-white px-3 border-md border-right-0">
+                                <i class="fa fa-envelope text-muted"></i>
+                            </span>
+                        </div>
+                        <input id="email" type="text" asp-for="UserName" placeholder="User Name" class="form-control bg-white border-left-0 border-md">
+                        <span asp-validation-for="UserName" class="text-danger"></span>
+                    </div>
+                    <div class="input-group col-lg-12 mb-4">
+                        <div class="input-group-prepend">
+                            <span style="height:40px" class="input-group-text bg-white px-3 border-md border-right-0">
+                                <i class="fa fa-envelope text-muted"></i>
+                            </span>
+                        </div>
+                        <input id="email" type="text" asp-for="Email" placeholder="Email" class="form-control bg-white border-left-0 border-md">
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+                    <div class="input-group col-lg-6 mb-4">
+                        <div class="input-group-prepend">
+                            <span style="height:40px" class="input-group-text bg-white px-3 border-md border-right-0">
+                                <i class="fa fa-lock text-muted"></i>
+                            </span>
+                        </div>
+                        <input id="password" type="password" asp-for="Password" placeholder="Password" class="form-control bg-white border-left-0 border-md">
+                        <span asp-validation-for="Password" class="text-danger"></span>
+
+                    </div>
+                    <div class="input-group col-lg-6 mb-4">
+                        <div class="input-group-prepend">
+                            <span style="height:40px" class="input-group-text bg-white px-3 border-md border-right-0">
+                                <i class="fa fa-lock text-muted"></i>
+                            </span>
+                        </div>
+                        <input id="passwordConfirmation" type="text" asp-for="ConfirmPassword" placeholder="Confirm Password" class="form-control bg-white border-left-0 border-md">
+                        <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+
+                    </div>
+
+                    <!-- Submit Button -->
+                    <div class="form-group col-lg-12 mx-auto mb-0">
+                        <button style="width:640px;background-color:#FFC107;color:white" type="submit" class="btn  btn-block py-2">
+                            Kayıt Ol
+                        </button>
+                    </div>
+
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
